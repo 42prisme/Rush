@@ -1,0 +1,7 @@
+{
+  "name": "Rush",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
