@@ -13,7 +13,7 @@
     </ion-toolbar>
   </ion-header> -->
 
-  <ion-card [routerLink]="['/task',Task.id]">
+  <ion-card *ngFor="let Task of tasks" [routerLink]="['/task',Task.name]">
     <ion-card-header>
       <ion-card-title>{{ Task.name }}</ion-card-title>
     </ion-card-header>
@@ -21,7 +21,7 @@
   </ion-card>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
+    <ion-fab-button [routerLink]="['/add-topic']" >
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

@@ -2,45 +2,29 @@ import { Component } from '@angular/core';
 
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
+import { Task } from 'src/Entity/Taks';
 
-import { Topic } from '../topic/topic.page';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-//*ngFor="let task of tasks"
-  tasks:[] //key tasks
 
-//task model
-  Task = {
-    id: Number,
-    name: String,
-    summary: String,
-    axes: String[0],
-    links: String[0],
-    notes: String
-  }
+  tasks : Array<Task>
 
   constructor(private storage: Storage) 
   {
+    this.tasks = this.loadTasks(storage)
+  }
+
+  loadTasks(storage: Storage) : Array<Task>
+  {
     storage.get("tasks").then((val)=>{
       this.tasks = val
+      return this.tasks
     })
-    this.Task.name = 'Seat'
-    this.Task.priority = 3
-    this.Task.summary = "clim, couroie, voyant airbag, amortisseur"
+    return null
   }
-
-  gotoTask(route:Router, taskId: String)
-  {
-    route.navigate(['/topic/'+taskId])
-  }
-
-  new_task()
-  {
-  }
-
 
 }

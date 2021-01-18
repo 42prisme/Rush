@@ -12,13 +12,13 @@ const routes: Routes = [
     loadChildren: () => import('./topic/topic.module').then( m => m.TopicPageModule)
   },
   {
+    path: 'add-topic',
+    loadChildren: () => import('./add-topic/add-topic.module').then( m => m.AddTopicPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },
-  {
-    path: 'add-topic',
-    loadChildren: () => import('./add-topic/add-topic.module').then( m => m.AddTopicPageModule)
   },
 ];
 
